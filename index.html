@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mayra</title>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Verdana;
+text-align:center;
+background:url("background.jpg");
+background-size:cover;
+background-attachment:fixed;
+color:white;
+overflow-x:hidden;
+}
+
+/* welcome */
+
+#welcome{
+font-size:40px;
+margin-top:40px;
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+/* deskripsi */
+
+#deskripsi{
+font-weight:bold;
+margin-top:50px;
+font-size:25px;
+color:#6ec6ff;
+}
+
+/* galeri */
+
+#galeri{
+margin-top:120px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:60px;
+padding-bottom:100px;
+}
+
+#galeri img{
+width:650px;
+height:auto;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.5s;
+cursor:pointer;
+}
+
+#galeri img:hover{
+transform:scale(1.15) rotate(2deg);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 id="welcome">Welcome to Mayra's World</h1>
+
+<div id="deskripsi">
+
+<h2>#mayra!?</h2>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="musik" loop></audio>
+
+<!-- GALERI -->
+
+<div id="galeri">
+
+<img src="foto1.jpg" onclick="playMusic('lagu1.mp3')">
+<img src="foto2.jpg" onclick="playMusic('lagu2.mp3')">
+<img src="foto3.jpg" onclick="playMusic('lagu3.mp3')">
+<img src="foto4.jpg" onclick="playMusic('lagu4.mp3')">
+<img src="foto5.jpg" onclick="playMusic('lagu5.mp3')">
+<img src="foto6.jpg" onclick="playMusic('lagu6.mp3')">
+<img src="foto7.jpg" onclick="playMusic('lagu7.mp3')">
+<img src="foto8.jpg" onclick="playMusic('lagu8.mp3')">
+
+</div>
+
+
+<script>
+
+/* animasi gelembung */
+
+function bubble(){
+
+for(let i=0;i<25;i++){
+
+let b=document.createElement("div")
+
+b.className="bubble"
+
+b.style.left=Math.random()*window.innerWidth+"px"
+
+b.style.width=(20+Math.random()*40)+"px"
+b.style.height=b.style.width
+
+document.body.appendChild(b)
+
+setTimeout(()=>{
+b.remove()
+},6000)
+
+}
+
+}
+
+/* paksa musik jalan */
+
+window.onload=function(){
+let musik=document.getElementById("musik")
+musik.play().catch(()=>{})
+}
+
+</script>
+<script>
+
+function playMusic(lagu){
+
+let musik = document.getElementById("musik")
+
+musik.src = lagu
+musik.play()
+
+bubble()
+
+}
+
+</script>
+</body>
+</html>
